@@ -10,7 +10,7 @@ public class Server {
 //    public static void initServerSocket() throws IOException {
 
         //create a server socket
-        ServerSocket serverSocket = new ServerSocket(9090);
+        ServerSocket serverSocket = new ServerSocket(9190);
         System.out.println("Server listening on Port 9090...");
 
         //accept client request
@@ -18,15 +18,10 @@ public class Server {
         System.out.println("Client connected");
 
 
-        //input stream
+        //initialising input/output stream
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
-//        // read input
-//        String message = in.readLine();
-//        System.out.println("Client says:" + message);
-//
-//        out.println("Client msg received");
 
         //client sends output, take it as input, display on terminal
         new Thread(() -> {
