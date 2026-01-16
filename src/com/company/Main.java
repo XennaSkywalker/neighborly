@@ -8,8 +8,8 @@ public class Main {
 
         //initialise server socket
 //        try {
-////            Server.initServerSocket();
-////            Client.initClientSocket();
+//            Server.initServerSocket();
+//            Client.initClientSocket();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
