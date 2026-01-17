@@ -5,11 +5,20 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client implements Runnable {
-//    public static void main(String[] args) throws IOException {
-    public static void initClientSocket() {
+public class Client {
+
+    private static String clientName = "";
+
+    public Client(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public static void main(String[] args) {
+//    public static void initClientSocket() {
         try {
-            Socket clientSocket = new Socket("localhost", 9190);
+
+            System.out.println("Client started");
+            Socket clientSocket = new Socket("localhost", 9090);
 
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -21,7 +30,7 @@ public class Client implements Runnable {
                 try {
                     String response = "";
                     while ((response = in.readLine()) != null) {
-                        System.out.println("[Server]" + response);
+                        System.out.println("[Server] from " + clientName + ": " + response);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -41,9 +50,9 @@ public class Client implements Runnable {
         }
 
     }
-
-    @Override
-    public void run() {
-        initClientSocket();
-    }
+//
+//    @Override
+//    public void run() {
+//        main();
+//    }
 }
